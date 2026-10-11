@@ -5,6 +5,7 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
+import { ExerciseModule } from './exercise/exercise.module';
 
 @Module({
     imports: [
@@ -25,6 +26,7 @@ import { AuthModule } from './auth/auth.module';
                 }) as TypeOrmModuleOptions,
         }),
         AuthModule,
+        ExerciseModule,
     ],
 
     controllers: [AppController],
