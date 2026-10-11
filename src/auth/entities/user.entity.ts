@@ -1,4 +1,7 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+
+import { Routine } from '../../routine/entities/routine.entity';
+import { ActivityLog } from '../../activity-log/entities/activity-log.entity';
 
 import { Role } from './role.entity';
 
@@ -26,4 +29,10 @@ export class User {
     @ManyToOne(() => Role, (role) => role.users, { eager: false, nullable: false }) // Many-to-one relationship with Role entity, meaning that each user can have one role, but a role can be assigned to many users
     @JoinColumn({ name: 'role_id' }) // Eager loading is enabled for the role relationship, meaning that when a user is fetched from the database, the associated role will be loaded automatically without needing to specify it in the query
     role: Role; // This property represents the role associated with the user, is of type Role and not an array because it's a many-to-one relationship
+
+    @OneToMany(() => Routine, (routine) => routine.user)
+    routines: Routine[];
+
+    @OneToMany(() => ActivityLog, (activityLog) => activityLog.user)
+    activityLogs: ActivityLog[];
 }
