@@ -9,6 +9,7 @@ import { ExerciseModule } from './exercise/exercise.module';
 import { RoutineModule } from './routine/routine.module';
 import { RoutineExerciseModule } from './routine-exercise/routine-exercise.module';
 import { ActivityLogModule } from './activity-log/activity-log.module';
+import { ActivityExerciseModule } from './activity-exercise/activity-exercise.module';
 
 @Module({
     imports: [
@@ -33,6 +34,7 @@ import { ActivityLogModule } from './activity-log/activity-log.module';
         RoutineModule,
         RoutineExerciseModule,
         ActivityLogModule,
+        ActivityExerciseModule,
     ],
 
     controllers: [AppController],
